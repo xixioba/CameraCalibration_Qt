@@ -87,6 +87,7 @@ class Calib():
                 cParameter.focal=self.K[0,0]
                 cParameter.aspect=self.K[1,1]/self.K[0,0]
                 cParameter.principal=[self.K[0,2],self.K[1,2]]
+                cParameter.R = self.K
                 cParameter.distortion=self.D
                 return cParameter
 

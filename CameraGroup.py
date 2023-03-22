@@ -29,10 +29,10 @@ class CameraParameter():
         print('focal:%f'%self.focal)
         print('aspect:%f'%self.aspect)
         print('principal:%f' % self.principal)
-        print('R:',self.R,sep='\n')
-        print('distortion:', self.distortion,sep='\n')
+        print('R:\n',np.array2string(self.R, separator=', '))
+        print('distortion:\n', np.array2string(self.R, distortion=', '))
     def __str__(self):
-        return "focal:"+str(self.focal)+"\naspect:"+str(self.aspect)+"\nppx:"+str(self.principal[0])+"\nppy"+str(self.principal[1])+"\nR:"+str(self.R)+"\ndistortion:"+str(self.distortion)
+        return "focal:"+str(self.focal)+"\naspect:"+str(self.aspect)+"\nppx:"+str(self.principal[0])+"\nppy"+str(self.principal[1])+"\nR:"+np.array2string(self.R, separator=', ')+"\ndistortion:"+np.array2string(self.R, distortion=', ')
     def plot(self,rad=1.5):
         theta=np.arange(0,rad,0.1)
         r=theta*(1+self.distortion[0]*theta**2+self.distortion[1]*theta**4+self.distortion[2]*theta**6+self.distortion[3]*theta**8)
